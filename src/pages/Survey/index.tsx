@@ -45,18 +45,33 @@ function Survey(): JSX.Element {
   switch (currentPage) {
     case 1:
       return (
-        <Nickname setState={setState(SURVEY_STATE_KEY.NICKNAME)} setPageCount={setPageCount} />
+        <Nickname
+          nickname={surveyState.nickname}
+          setNickname={setState(SURVEY_STATE_KEY.NICKNAME)}
+          setPageCount={setPageCount}
+        />
       );
     case 2:
       return (
-        <Gender />
-        // <Gender setState={setState(SURVEY_STATE_KEY.GENDER)} setCurrentPage={setCurrentPage} />
+        <Gender
+          gender={surveyState.gender}
+          setGender={setState(SURVEY_STATE_KEY.NICKNAME)}
+          setPageCount={setPageCount}
+        />
       );
     case 3:
-      return <Age setState={setState(SURVEY_STATE_KEY.AGE)} setPageCount={setPageCount} />;
+      return (
+        <Age
+          age={surveyState.age}
+          setAge={setState(SURVEY_STATE_KEY.AGE)}
+          setPageCount={setPageCount}
+        />
+      );
     case 4:
       return (
         <BodyInfo
+          weight={surveyState.weight}
+          height={surveyState.height}
           setHeight={setState(SURVEY_STATE_KEY.HEIGHT)}
           setWeight={setState(SURVEY_STATE_KEY.WEIGHT)}
           setPageCount={setPageCount}
@@ -66,7 +81,11 @@ function Survey(): JSX.Element {
       return <Split />;
     default:
       return (
-        <Nickname setState={setState(SURVEY_STATE_KEY.NICKNAME)} setPageCount={setPageCount} />
+        <Nickname
+          nickname={surveyState.nickname}
+          setNickname={setState(SURVEY_STATE_KEY.NICKNAME)}
+          setPageCount={setPageCount}
+        />
       );
   }
 }
