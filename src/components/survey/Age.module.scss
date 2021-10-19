@@ -1,4 +1,7 @@
 @import '../../styles/common';
 
+@include survey-default-with-button;
 
-@include nextButton;
+input {
+  width: 168px;
+}

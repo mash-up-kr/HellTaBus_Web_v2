@@ -1,5 +1,8 @@
-import { Fragment, useState } from 'react'
-import { Age, Nickname, BodyInfo, Split } from '../../components/survey'
+import styles from './index.module.scss'
+import { Fragment } from 'react'
+import { Age, Gender, Nickname, BodyInfo, Split } from '../../components/survey'
+import useForm from '../../hooks/useForm'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 interface SurveyState {
   nickname: string
@@ -20,7 +23,7 @@ const SURVEY_STATE_KEY = {
 }
 
 function Survey(): any {
-  const initState = {
+  const initialState = {
     nickname: '',
     gender: '',
     age: 0,
@@ -29,53 +32,49 @@ function Survey(): any {
     split: 0,
   }
 
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const [surveyState, setSurveyState] = useState<SurveyState>(initState)
-
-  const setState = (key: string) => (value: string | number) => {
-    setSurveyState(prev => ({
-      ...prev,
-      [key]: value,
-    }))
-  }
-
-  const setPageCount = (newPageCount: number) => {
-    setCurrentPage(newPageCount)
-  }
+  const { currentPage, surveyState, setState, setPageCount } = useForm({
+    initialState,
+  })
 
   const components = [
-    <Age
-      age={surveyState.age}
-      setAge={setState(SURVEY_STATE_KEY.AGE)}
-      setPageCount={setPageCount}
-    />,
     <Nickname
       nickname={surveyState.nickname}
       setNickname={setState(SURVEY_STATE_KEY.NICKNAME)}
       setPageCount={setPageCount}
     />,
-
+    <Gender
+      nickname={surveyState.nickname}
+      gender={surveyState.gender}
+      setGender={setState(SURVEY_STATE_KEY.GENDER)}
+      setPageCount={setPageCount}
+    />,
+    <Age
+      nickname={surveyState.nickname}
+      setAge={setState(SURVEY_STATE_KEY.AGE)}
+      setPageCount={setPageCount}
+    />,
     <BodyInfo
-      weight={surveyState.weight}
-      height={surveyState.height}
+      nickname={surveyState.nickname}
       setHeight={setState(SURVEY_STATE_KEY.HEIGHT)}
       setWeight={setState(SURVEY_STATE_KEY.WEIGHT)}
       setPageCount={setPageCount}
     />,
-
-    <Split
-      split={surveyState.split}
-      setSplit={setState(SURVEY_STATE_KEY.SPLIT)}
-      setPageCount={setPageCount}
-    />,
+    <Split setSplit={setState(SURVEY_STATE_KEY.SPLIT)} setPageCount={setPageCount} />,
   ]
 
-  return components.map((component, index) => {
-    if (currentPage - 1 === index) {
+  return components.map((component, page) => {
+    if (currentPage === page) {
       return (
-        <div>
-          <header>뒤로가기</header>
-          <Fragment key={`${index}`}>{component}</Fragment>
+        <div className={styles.container} key={`component-${page}`}>
+          <header className={styles.header}>
+            <button
+              className={styles.previous__button}
+              onClick={() => setPageCount(currentPage - 1)}
+            >
+              <ArrowBackIcon />
+            </button>
+          </header>
+          <Fragment>{component}</Fragment>
         </div>
       )
     }
