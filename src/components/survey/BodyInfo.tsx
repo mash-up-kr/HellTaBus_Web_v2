@@ -1,29 +1,29 @@
-import React from 'react';
+import React from 'react'
 
 interface Props {
-  weight: number;
-  height: number;
-  setHeight: (value: number) => void;
-  setWeight: (value: number) => void;
-  setPageCount: (page: number) => void;
+  weight: number
+  height: number
+  setHeight: (value: number) => void
+  setWeight: (value: number) => void
+  setPageCount: (page: number) => void
 }
 
 function BodyInfo({ weight, height, setHeight, setWeight, setPageCount }: Props): JSX.Element {
   const changeHeight = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value } = e.target;
+    const { value } = e.target
 
-    setHeight(+value);
-  };
+    setHeight(+value)
+  }
 
   const changeWeight = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value } = e.target;
+    const { value } = e.target
 
-    setWeight(+value);
-  };
+    setWeight(+value)
+  }
 
   const onSubmit = () => {
-    setPageCount(4);
-  };
+    setPageCount(4)
+  }
 
   return (
     <div className="BodyInfo__wrapper">
@@ -41,7 +41,7 @@ function BodyInfo({ weight, height, setHeight, setWeight, setPageCount }: Props)
         다음
       </button>
     </div>
-  );
+  )
 }
 
-export default BodyInfo;
+export default BodyInfo

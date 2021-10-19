@@ -1,21 +1,21 @@
-import React from 'react';
+import React from 'react'
 
 interface Props {
-  nickname: string;
-  setNickname: (value: string) => void;
-  setPageCount: (page: number) => void;
+  nickname: string
+  setNickname: (value: string) => void
+  setPageCount: (page: number) => void
 }
 
 function Nickname({ nickname, setNickname, setPageCount }: Props) {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value }: { value: string } = e.target;
+    const { value }: { value: string } = e.target
 
-    setNickname(value);
-  };
+    setNickname(value)
+  }
 
   const onSubmit = () => {
-    setPageCount(1);
-  };
+    setPageCount(1)
+  }
 
   return (
     <div className="usernamewrap">
@@ -28,7 +28,7 @@ function Nickname({ nickname, setNickname, setPageCount }: Props) {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Nickname;
+export default Nickname
