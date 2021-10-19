@@ -1,0 +1,28 @@
+@import '../../styles/common';
+
+@include survey-default-with-button;
+
+.title {
+  font-weight: 700;
+  margin-bottom: 40px;
+
+  span {
+    color: $primary;
+  }
+}
+
+.gender__button {
+  width: 146px;
+  height: 54px;
+  border: 1px solid #aaa;
+  border-radius: 12px;
+  color: #aaa;
+  background-color: #f8f8f8;
+  margin: 0 2px;
+}
+
+.gender__button:focus {
+  color: $primary;
+  border: 1.5px solid $primary;
+  font-weight: 700;
+}
