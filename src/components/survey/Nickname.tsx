@@ -1,40 +1,8 @@
 import { useState } from 'react'
 import styles from './Age.module.scss'
 import ProgressBar from '../common/ProgressBar'
-import { Input } from '@mui/material'
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
-
-// interface Props {
-//   nickname: string;
-//   setNickname: (value: string) => void;
-//   setPageCount: (page: number) => void;
-// }
-
-// function Nickname({ nickname, setNickname, setPageCount }: Props) {
-//   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-//     const { value }: { value: string } = e.target;
-
-//     setNickname(value);
-//   };
-
-//   const onSubmit = () => {
-//     setPageCount(1);
-//   };
-
-//   return (
-//     <div className="usernamewrap">
-//       <div className={styles.container}>
-//         <h2>당신을 뭐라고 불러드릴까요?</h2>
-//         <input type="text" placeholder="닉네임 입력" value={nickname} onChange={onChange} />
-//         <button className="next__button" type="button" onClick={onSubmit}>
-//           다음
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Nickname;
+import classNames from 'classnames/bind'
+const cx = classNames.bind(styles)
 
 interface Props {
   nickname: string
@@ -67,11 +35,17 @@ function Nickname({ nickname, setNickname, setPageCount }: Props) {
   }
 
   return (
-    <div className="usernamewrap">
+    <div className="wrapper">
       <ProgressBar percent={1 / 5} />
       <div className={styles.container}>
         <h2>당신을 뭐라고 불러드릴까요?</h2>
-        <input type="text" placeholder="닉네임 입력" value={nickname} onChange={onChange} />
+        <input
+          className={styles.common_input}
+          type="text"
+          placeholder="닉네임 입력"
+          value={nickname}
+          onChange={onChange}
+        />
 
         {/* {typeof error === 'string' && (
           <div className={styles.error__icon}>

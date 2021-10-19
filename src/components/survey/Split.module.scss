@@ -1,3 +1,19 @@
 @import '../../styles/common';
 
-@include survey-default-without-button;
+@include without-button;
+
+.split_input {
+  width: 40px;
+  height: 43px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid $primary;
+  margin: {
+    top: 20px;
+    bottom: 10px;
+  }
+}

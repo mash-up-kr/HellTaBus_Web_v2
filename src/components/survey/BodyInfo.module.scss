@@ -1,8 +1,8 @@
 @import '../../styles/common';
 
-@include survey-default-without-button;
+@include without-button;
 
-input {
+.body_input {
   width: 168px;
   height: 43px;
   font-size: 15px;

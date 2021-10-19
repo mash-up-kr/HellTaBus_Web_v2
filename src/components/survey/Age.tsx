@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Age.module.scss'
+import classNames from 'classnames/bind'
+import ProgressBar from '../common/ProgressBar'
+const cx = classNames.bind(styles)
 
 interface Props {
   nickname: string
@@ -31,15 +34,18 @@ function Age({ nickname, setAge, setPageCount }: Props): JSX.Element {
   }
 
   return (
-    <div className={styles.container}>
-      <h2>
-        {nickname}님의 <span>나이</span>를 알려주세요
-      </h2>
-      <input type="text" placeholder="00" onChange={onChange} />
-      {error && <p className={styles.error_msg}>{error}</p>}
-      <button className={styles.next__button} type="button" onClick={onSubmit} disabled={!!error}>
-        다음
-      </button>
+    <div className="wrapper">
+      <ProgressBar percent={3 / 5} />
+      <div className={cx('container')}>
+        <h2>
+          {nickname}님의 <span>나이</span>를 알려주세요
+        </h2>
+        <input className={cx('common_input')} type="text" placeholder="00" onChange={onChange} />
+        {error && <p className={styles.error_msg}>{error}</p>}
+        <button className={styles.next__button} type="button" onClick={onSubmit} disabled={!!error}>
+          다음
+        </button>
+      </div>
     </div>
   )
 }

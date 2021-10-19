@@ -1,8 +1,6 @@
 import styles from './Gender.module.scss'
 import ProgressBar from '../common/ProgressBar'
-
 import classNames from 'classnames/bind'
-
 const cx = classNames.bind(styles)
 
 interface Props {
