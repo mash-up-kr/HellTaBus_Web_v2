@@ -1,9 +1,9 @@
-@import '../../styles/common';
+@import '../../../styles/common.scss';
 
 @include without-button;
 
-.body_input {
-  width: 168px;
+.s_split_input {
+  width: 40px;
   height: 43px;
   font-size: 15px;
   font-weight: 700;
@@ -16,4 +16,10 @@
     top: 20px;
     bottom: 10px;
   }
+}
+
+.s_images_container {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 12px;
 }

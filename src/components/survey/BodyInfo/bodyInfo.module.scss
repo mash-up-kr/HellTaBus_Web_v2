@@ -1,9 +1,9 @@
-@import '../../styles/common';
+@import '../../../styles/common.scss';
 
 @include without-button;
 
-.split_input {
-  width: 40px;
+.s_body_input {
+  width: 168px;
   height: 43px;
   font-size: 15px;
   font-weight: 700;
@@ -15,5 +15,19 @@
   margin: {
     top: 20px;
     bottom: 10px;
+  }
+}
+
+.s_height_info {
+  span {
+    display: inline-block;
+    width: 3em;
+  }
+}
+
+.s_weight_info {
+  span {
+    display: inline-block;
+    width: 3em;
   }
 }
