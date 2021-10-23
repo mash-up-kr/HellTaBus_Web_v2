@@ -1,4 +1,4 @@
-@import '../../styles/color';
+@import '../../../styles/color';
 
 .wrapper {
   background-color: #c5c5c5;
@@ -6,12 +6,14 @@
   width: 300px;
   height: 10px;
   text-align: right;
+  margin-bottom: 53px;
 
   .progress {
     background-color: $primary;
+    width: 0px;
     height: 10px;
     border-radius: 1rem;
-    transition: 1s ease;
+    transition: width 1s ease;
     transition-delay: 0.5s;
   }
 

@@ -1,0 +1,24 @@
+@import '../../../styles/color.scss';
+
+.s_container {
+  width: 214px;
+  height: 262px;
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: $onPrimary;
+}
+
+.s_img {
+  text-align: center;
+}
+
+.s_title {
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.s_description {
+  font-size: 14px;
+}

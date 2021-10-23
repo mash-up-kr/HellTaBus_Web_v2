@@ -1,17 +1,8 @@
-import styles from './index.module.scss'
-import { Fragment } from 'react'
-import { Age, Gender, Nickname, BodyInfo, Split } from '../../components/survey'
-import useForm from '../../hooks/useForm'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-
-interface SurveyState {
-  nickname: string
-  gender: string
-  age: number
-  height: number
-  weight: number
-  split: number
-}
+import styles from './index.module.scss';
+import { Fragment } from 'react';
+import { Age, BodyInfo, Gender, Height, Nickname, Split, Weight } from '../../components/survey';
+import useForm from '../../hooks/useForm';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const SURVEY_STATE_KEY = {
   NICKNAME: 'nickname',
@@ -20,7 +11,7 @@ const SURVEY_STATE_KEY = {
   HEIGHT: 'height',
   WEIGHT: 'weight',
   SPLIT: 'split',
-}
+};
 
 function Survey(): any {
   const initialState = {
@@ -30,11 +21,11 @@ function Survey(): any {
     height: 0,
     weight: 0,
     split: 0,
-  }
+  };
 
   const { currentPage, surveyState, setState, setPageCount } = useForm({
     initialState,
-  })
+  });
 
   const components = [
     <Nickname
@@ -50,17 +41,24 @@ function Survey(): any {
     />,
     <Age
       nickname={surveyState.nickname}
+      age={surveyState.age}
       setAge={setState(SURVEY_STATE_KEY.AGE)}
       setPageCount={setPageCount}
     />,
-    <BodyInfo
+    <Height
       nickname={surveyState.nickname}
+      height={surveyState.height}
       setHeight={setState(SURVEY_STATE_KEY.HEIGHT)}
+      setPageCount={setPageCount}
+    />,
+    <Weight
+      nickname={surveyState.nickname}
+      weight={surveyState.weight}
       setWeight={setState(SURVEY_STATE_KEY.WEIGHT)}
       setPageCount={setPageCount}
     />,
     <Split setSplit={setState(SURVEY_STATE_KEY.SPLIT)} setPageCount={setPageCount} />,
-  ]
+  ];
 
   return components.map((component, page) => {
     if (currentPage === page) {
@@ -76,9 +74,9 @@ function Survey(): any {
           </header>
           <Fragment>{component}</Fragment>
         </div>
-      )
-    }
-  })
+      );
+    } else return null;
+  });
 }
 
-export default Survey
+export default Survey;
