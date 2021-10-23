@@ -18,15 +18,15 @@ function Height({ nickname, height, setHeight, setPageCount }: Props): JSX.Eleme
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { value }: { value: string } = e.target;
 
-    setHeight(+value);
     if (!value) {
       setError('정보를 입력해 주세요');
     } else if (Number.isNaN(+value)) {
       setError('키는 숫자만 입력 가능합니다.');
     } else if (+value > 300) {
-      // setHeight(+value);
+      setHeight(+value);
       setError(`정말 ${value}cm 맞으신가요!?🤔`);
     } else {
+      setHeight(+value);
       setError(false);
     }
   };
@@ -49,7 +49,7 @@ function Height({ nickname, height, setHeight, setPageCount }: Props): JSX.Eleme
           value={height}
           onChange={onChange}
         />
-        {error && <p className={classNames(error_msg)}>{error}</p>}
+        {typeof error === 'string' && <p className={classNames(error_msg)}>{error}</p>}
         <button
           className={classNames(next__button)}
           type="button"
