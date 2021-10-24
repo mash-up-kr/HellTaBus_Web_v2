@@ -10,7 +10,6 @@
 
   .progress {
     background-color: $primary;
-    width: 0px;
     height: 10px;
     border-radius: 1rem;
     transition: width 1s ease;
@@ -18,9 +17,10 @@
   }
 
   .step {
-    color: #777777;
+    color: #777;
     text-align: right;
     font-size: 1rem;
+    font-weight: bold;
   }
 
   .current__step {

@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import styles from './progressBar.module.scss';
+import { useState, useEffect } from 'react'
+import styles from './progressBar.module.scss'
 
-import classNames from 'classnames/bind';
+import classNames from 'classnames/bind'
 
-const cx = classNames.bind(styles);
+const cx = classNames.bind(styles)
 
 function ProgressBar({ ratio }: { ratio: number }): JSX.Element {
-  const [value, setValue] = useState((ratio / 6) * 300 - 60);
+  const [value, setValue] = useState((ratio / 6) * 300 - 60)
 
   useEffect(() => {
-    setValue((ratio / 6) * 300);
-  }, [ratio]);
+    setValue((ratio / 6) * 300)
+  }, [ratio])
 
   return (
     <div className={cx('wrapper')}>
@@ -19,7 +19,7 @@ function ProgressBar({ ratio }: { ratio: number }): JSX.Element {
         <span className={cx('current__step')}>{ratio}</span> / 6step
       </span>
     </div>
-  );
+  )
 }
 
-export default ProgressBar;
+export default ProgressBar

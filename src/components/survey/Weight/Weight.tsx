@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import styles from './weight.module.scss';
-import classNames from 'classnames/bind';
-import ProgressBar from '../ProgressBar/ProgressBar';
+import React, { useState } from 'react'
+import styles from './weight.module.scss'
+import classNames from 'classnames/bind'
+import ProgressBar from '../ProgressBar/ProgressBar'
 
-const { container, title, common_input, error_msg, next__button } = styles;
+const { container, title, common_input, error_msg, next__button } = styles
 
 interface Props {
-  nickname: string;
-  weight: number;
-  setWeight: (value: number) => void;
-  setPageCount: (page: number) => void;
+  nickname: string
+  weight: number
+  setWeight: (value: number) => void
+  setPageCount: (page: number) => void
 }
 
 function Weight({ nickname, weight, setWeight, setPageCount }: Props): JSX.Element {
-  const [error, setError] = useState<boolean | string>(!weight);
+  const [error, setError] = useState<boolean | string>(!weight)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { value }: { value: string } = e.target;
-  };
+    const { value }: { value: string } = e.target
+  }
 
   const onSubmit = () => {
-    setPageCount(5);
-  };
+    setPageCount(5)
+  }
 
   return (
     <>
@@ -48,7 +48,7 @@ function Weight({ nickname, weight, setWeight, setPageCount }: Props): JSX.Eleme
         </button>
       </div>
     </>
-  );
+  )
 }
 
-export default Weight;
+export default Weight
